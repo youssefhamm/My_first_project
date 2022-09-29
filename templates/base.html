@@ -4,8 +4,17 @@
         <title>La boutique de ICHOU</title>
     </head>
     <body>
+
+        <a href="{% url 'index' %}"><h1>La boutique de ICHOU</h1></a>
+        
+
+        {% if not user.is_authenticated  %}
+        <a href="{% url 'signup' %}">S'inscrire</a>
+        {% endif %}
+
         {% block content %}
 
         {% endblock %}
+        
     </body>
 </html>
