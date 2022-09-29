@@ -4,8 +4,6 @@
     <h1>La boutique de ICHOU</h1>
     {% for product in products %}
         <h2>{{ product.name }}</h2>
-        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        <h2>{{ }}</h2>
-        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 250px;">
     {% endfor %}
 {% endblock %}
