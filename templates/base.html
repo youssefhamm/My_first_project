@@ -8,8 +8,12 @@
         <a href="{% url 'index' %}"><h1>La boutique de ICHOU</h1></a>
         
 
-        {% if not user.is_authenticated  %}
-        <a href="{% url 'signup' %}">S'inscrire</a>
+        {% if user.is_authenticated  %}
+            {{user.username}}
+            <a href="{% url 'logout' %}">Déconnexion</a>
+        {% else %}
+            <a href="{% url 'signup' %}">S'inscrire</a><br>
+            <a href="{% url 'login' %}">Se connecter</a>
         {% endif %}
 
         {% block content %}
