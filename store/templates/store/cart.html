@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+<h1>Mon Panier</h1>
+
+{% block content %}
+<table border="2px">
+    <tr>
+        <td>Produit</td>
+        <td>Image</td>
+        <td>Quantité</td>
+    </tr>
+    {% for order in orders %}
+    <tr>
+            <td>{{ order.product.name }}</td>
+            <td><img src="{{ order.product.image.url }}" alt="{{ product.name }}" style="width: 250px;"></td>
+            <td>{{ order.quantity }}</td>
+    </tr>
+    {% endfor %}
+    
+</table>
+<a href="{% url 'delete-cart' %}">Supprimer le Panier</a>
+{% endblock %}

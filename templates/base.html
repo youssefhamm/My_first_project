@@ -7,9 +7,13 @@
 
         <a href="{% url 'index' %}"><h1>La boutique de ICHOU</h1></a>
         
+        {% if user.cart %}
+        <a href="{% url 'cart' %}"> Voir Mon Panier ({{ user.cart.orders.count }})</a><br>
+        {% endif %}
 
         {% if user.is_authenticated  %}
-            {{user.username}}
+    
+            {{user.username}} <br>
             <a href="{% url 'logout' %}">Déconnexion</a>
         {% else %}
             <a href="{% url 'signup' %}">S'inscrire</a><br>
