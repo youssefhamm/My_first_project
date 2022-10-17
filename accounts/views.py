@@ -7,7 +7,7 @@ User = get_user_model()
 
 def signup(request):
     if request.method == "POST":
-        #On va traiter le formulaire 
+        #On va traiter le formulaire
         username = request.POST.get("username")
         password = request.POST.get("password")
         user = User.objects.create_user(username=username, password=password)
@@ -27,7 +27,9 @@ def login_user(request):
         if user:
             login(request, user)
             return redirect('index')
-        
+        else:
+            return redirect('login')
+
     else:
         return render(request, "accounts/login.html")
 

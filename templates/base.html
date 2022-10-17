@@ -3,26 +3,59 @@
     <head>
         <title>La boutique de ICHOU</title>
     </head>
+    <style>
+        .form-div{
+            align:center;
+            border-radius: 10px 2%;
+            text-align: center;
+            width: 15em;
+            border: 1px solid #333;
+            box-shadow: 8px 8px 5px #444;
+            padding: 8px 12px;
+            background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+            margin-left: auto;
+            margin-right: auto;
+            background-color: grey;
+            padding: 15px;
+        }
+        .base-div{
+            align:center;
+            border-radius: 10px 2%;
+            text-align: center;
+            width: 75%;
+            border: 1px solid #333;
+            box-shadow: 8px 8px 5px #444;
+            padding: 8px 12px;
+            background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+            margin-left: auto;
+            margin-right: auto;
+            background-color: grey;
+            padding: 15px;
+
+        }
+    </style>
     <body>
-
+    <div class="base-div">
         <a href="{% url 'index' %}"><h1>La boutique de ICHOU</h1></a>
-        
-        {% if user.cart %}
-        <a href="{% url 'cart' %}"> Voir Mon Panier ({{ user.cart.orders.count }})</a><br>
-        {% endif %}
 
-        {% if user.is_authenticated  %}
-    
-            {{user.username}} <br>
-            <a href="{% url 'logout' %}">Déconnexion</a>
-        {% else %}
-            <a href="{% url 'signup' %}">S'inscrire</a><br>
-            <a href="{% url 'login' %}">Se connecter</a>
-        {% endif %}
+            {% if user.cart %}
+            <a href="{% url 'cart' %}"> Voir Mon Panier ({{ user.cart.orders.count }})</a><br>
+            {% endif %}
 
-        {% block content %}
+            {% if user.is_authenticated  %}
 
-        {% endblock %}
-        
+                {{user.username}} <br>
+                <a href="{% url 'logout' %}">Déconnexion</a>
+            {% else %}
+                <a href="{% url 'signup' %}">S'inscrire</a><br>
+                <a href="{% url 'login' %}">Se connecter</a>
+            {% endif %}
+
+            {% block content %}
+
+            {% endblock %}
+    </div>
+
+
     </body>
 </html>
